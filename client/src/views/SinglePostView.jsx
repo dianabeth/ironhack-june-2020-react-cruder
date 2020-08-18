@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { loadPost } from './../services/post';
 
 class SinglePostView extends Component {
@@ -33,11 +34,11 @@ class SinglePostView extends Component {
           <>
             <p>{post.content}</p>
             <small>{post.creationDate}</small>
+            <Link to={`/post/${this.props.match.params.id}/edit`}>Edit Post</Link>
           </>
         )) || <p>Loading...</p>}
       </div>
     );
   }
 }
-
 export default SinglePostView;
